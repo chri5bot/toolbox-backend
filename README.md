@@ -26,7 +26,9 @@ To run this project, you will need to have Node.js and Docker installed on your 
 2. Create a `.env` file in the root directory of the project and add your secrets:
 
    ```bash
-   SECRET=aSuperSecretKey
+   PORT=3000
+   EXTERNAL_API=https://echo-serv.tbxnet.com/v1/secret/
+   EXTERNAL_API_KEY=aSuperSecretKey
    ```
 
 ### Running the Tests
@@ -55,7 +57,7 @@ docker-compose up
 
 ### API
 
-#### GET /v1/secret/files
+#### GET /files/list
 
 Returns a list of files.
 
@@ -79,6 +81,51 @@ Returns a list of files.
     "test15.csv"
   ]
 }
+```
+
+#### GET /file/:filename
+
+Returns file data.
+
+**Headers**
+
+- `Authorization: Bearer aSuperSecretKey`
+
+**Response**
+
+```json
+[
+  {
+    "file": "test18.csv",
+    "text": "sItLiqObkUEQVtJdtcGRnUWFjxtV",
+    "number": 875351790,
+    "hex": "jz385a8cf05596c32a715c94924a9f"
+  },
+  {
+    "file": "test18.csv",
+    "text": "avuLdlpGODfoUr",
+    "number": 2345286655,
+    "hex": "jz0e2e0901c65df60c2f05c87fbca1"
+  },
+  {
+    "file": "test18.csv",
+    "text": "QelMiEQlVFzlLtEYp",
+    "number": 223,
+    "hex": "jzac6f82a2eff5ad8129aa4301b69b"
+  },
+  {
+    "file": "test18.csv",
+    "text": "UqmOFUGCkV",
+    "number": 6004669,
+    "hex": "jz33aa31f87a027aada6949ad057f6"
+  },
+  {
+    "file": "test18.csv",
+    "text": "HJP",
+    "number": 6691076,
+    "hex": "jz3e8372f4f6bce306e69af27666be"
+  }
+]
 ```
 
 ## Built With
