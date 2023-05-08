@@ -5,11 +5,11 @@ const app = require("../app");
 chai.use(chaiHttp);
 const expect = chai.expect;
 
-describe("GET /v1/secret/files", () => {
+describe("GET /files/list", () => {
   it("should return an array of files", function (done) {
     chai
       .request(app)
-      .get("/v1/secret/files")
+      .get("/files/list")
       .end(function (err, res) {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
@@ -20,13 +20,13 @@ describe("GET /v1/secret/files", () => {
   });
 });
 
-describe("GET /v1/secret/files/:filename", () => {
+describe("GET /files/:filename", () => {
   it("should return file content on valid request", (done) => {
     const filename = "test2.csv";
 
     chai
       .request(app)
-      .get(`/v1/secret/files/${filename}`)
+      .get(`/file/${filename}`)
       .end((err, res) => {
         expect(err).to.be.null;
         expect(res).to.have.status(200);
@@ -40,7 +40,7 @@ describe("GET /v1/secret/files/:filename", () => {
 
     chai
       .request(app)
-      .get(`/v1/secret/files/${filename}`)
+      .get(`/file/${filename}`)
       .end((err, res) => {
         expect(res).to.have.status(404);
         expect(res.text).to.include("Not Found");
