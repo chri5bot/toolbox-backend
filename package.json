@@ -23,15 +23,22 @@
     "mocha": "^10.2.0",
     "standard": "^17.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "eslintConfig": {
+    "extends": "standard",
+    "plugins": [
+      "standard",
+      "promise"
+    ]
   },
   "lint-staged": {
     "*.js": [
       "eslint --fix",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
