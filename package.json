@@ -4,8 +4,9 @@
   "description": "A project using Node.js, Express.js, StandardJS, Testing, Factory Method Design Pattern, and Docker Compose.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "mocha --recursive tests",
+    "start": "nodemon server.js",
+    "test": "mocha tests",
+    "test:watch": "nodemon --exec 'npm test'",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "docker:build": "docker-compose build",
@@ -16,12 +17,14 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
     "docker-compose": "^0.24.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "mocha": "^10.2.0",
+    "nodemon": "^2.0.22",
     "standard": "^17.0.0"
   },
   "eslintConfig": {
