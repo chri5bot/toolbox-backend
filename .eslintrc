@@ -7,8 +7,5 @@
   "globals": {
     "expect": true,
     "sinon": true
-  },
-  "scripts": {
-    "lint": "eslint ."
   }
 }
