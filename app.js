@@ -1,4 +1,5 @@
 require('dotenv').config()
+const csvToJSON = require('./utils/csvToJSON')
 
 const port = process.env.PORT || 3000
 const secret = process.env.EXTERNAL_API_KEY
@@ -33,7 +34,9 @@ app.get('/file/:filename', async (req, res) => {
         Authorization: `Bearer ${secret}`
       }
     })
-    res.send(response.data)
+    const csv = response.data
+    const json = csvToJSON(csv)
+    res.send(json)
   } catch (error) {
     console.error(error)
     res.status(error.response.status).send(error.response.data)

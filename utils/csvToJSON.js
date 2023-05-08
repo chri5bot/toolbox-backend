@@ -1,3 +1,5 @@
+const isValidRow = require('./isValidRow')
+
 /**
  * Convert a CSV string to a JSON array.
  * @param {string} csv - The CSV string to parse.
@@ -13,9 +15,14 @@ const csvToJSON = csv => {
     const values = line.trim().split(',')
     for (let i = 0; i < headers.length; i++) {
       const value = isNaN(values[i]) ? values[i] : Number(values[i])
-      data[headers[i]] = value
+      if (value) {
+        data[headers[i]] = value
+      }
     }
-    result.push(data)
+
+    if (isValidRow(data)) {
+      result.push(data)
+    }
   }
 
   return result

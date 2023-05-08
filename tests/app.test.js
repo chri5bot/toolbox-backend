@@ -28,7 +28,8 @@ describe('GET /files/:filename', () => {
       .get(`/file/${filename}`)
       .end((_err, res) => {
         expect(res).to.have.status(200)
-        expect(res.text).to.include('file,text,number,hex')
+        expect(res.body).to.be.an('array')
+        expect(res.body).to.have.length.above(0)
         done()
       })
   })
