@@ -20,7 +20,7 @@ describe('GET /files/list', () => {
 })
 
 describe('GET /files/:filename', () => {
-  it('should return file content on valid request', (done) => {
+  it('should return file content on valid request', done => {
     const filename = 'test2.csv'
 
     chai
@@ -33,7 +33,7 @@ describe('GET /files/:filename', () => {
       })
   })
 
-  it('should return error status and message on invalid request', (done) => {
+  it('should return error status and message on invalid request', done => {
     const filename = 'nonexistent.csv'
 
     chai

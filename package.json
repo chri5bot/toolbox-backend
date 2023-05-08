@@ -9,6 +9,7 @@
     "test:watch": "nodemon --exec 'npm test'",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
+    "lint-staged": "lint-staged",
     "docker:build": "docker-compose build",
     "docker:up": "docker-compose up"
   },
@@ -20,13 +21,21 @@
     "chai-http": "^4.3.0",
     "docker-compose": "^0.24.0",
     "dotenv": "^16.0.3",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-mocha": "^10.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-standard": "^5.0.0",
     "express": "^4.18.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.22",
+    "prettier": "^2.8.8",
     "standard": "^17.0.0"
   },
   "eslintConfig": {
@@ -37,15 +46,7 @@
     ]
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "*.js": "eslint --cache --fix"
   },
   "dependencies": {
     "axios": "^1.4.0"
