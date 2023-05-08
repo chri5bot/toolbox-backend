@@ -1,9 +1,25 @@
 const express = require("express");
-const app = express();
-const port = 3000;
+const axios = require("axios");
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+require("dotenv").config();
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get("/v1/secret/files", async (req, res) => {
+  try {
+    const response = await axios.get(
+      "https://echo-serv.tbxnet.com/v1/secret/files",
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.SECRET_KEY}`,
+        },
+      }
+    );
+    res.send(response.data);
+  } catch (error) {
+    console.error(error);
+    res.status(error.response.status).send(error.response.data);
+  }
 });
 
 app.listen(port, () => {
