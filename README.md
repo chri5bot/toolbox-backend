@@ -47,13 +47,23 @@ To run the app, use the following command:
 npm start
 ```
 
-### Docker Compose
+### Running the app with Docker
 
-To run the app using Docker Compose, use the following command:
+You can run the app using Docker Compose. To do so, execute the following commands:
+
+1. Build the Docker images:
 
 ```bash
-docker-compose up
+npm run docker:build
 ```
+
+2. Start the Docker containers:
+
+```bash
+npm run docker:up
+```
+
+The app should now be running in a Docker container. You can access it at `http://localhost:3000` (or another port if you've changed the `PORT` environment variable in the `docker-compose.yml` file).
 
 ### API
 
