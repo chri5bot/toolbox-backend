@@ -1,3 +1,9 @@
+/**
+ * Checks if a given row object is valid by verifying if it contains all expected properties and no extra ones.
+ *
+ * @param {Object} row - The row object to validate.
+ * @returns {boolean} - Returns `true` if the row is valid, otherwise `false`.
+ */
 const isValidRow = row => {
   const expectedProperties = ['file', 'text', 'number', 'hex']
   const actualProperties = Object.keys(row)
@@ -17,4 +23,4 @@ const isValidRow = row => {
   return true
 }
 
-module.exports = isValidRow
+export default isValidRow

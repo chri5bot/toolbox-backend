@@ -1,13 +1,14 @@
-require('dotenv').config()
-const csvToJSON = require('./utils/csvToJSON')
+import express from 'express'
+import axios from 'axios'
+import cors from 'cors'
+import dotenv from 'dotenv'
+import csvToJSON from './utils/csvToJSON.js'
+
+dotenv.config()
 
 const port = process.env.PORT || 3000
 const secret = process.env.EXTERNAL_API_KEY
 const externalAPI = process.env.EXTERNAL_API
-
-const express = require('express')
-const axios = require('axios')
-const cors = require('cors')
 
 const app = express()
 
@@ -50,4 +51,4 @@ app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`)
 })
 
-module.exports = app
+export default app

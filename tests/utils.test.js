@@ -1,7 +1,8 @@
-const csvToJSON = require('../utils/csvToJSON')
-const isValidRow = require('../utils/isValidRow')
+import chai from 'chai'
 
-const chai = require('chai')
+import csvToJSON from '../utils/csvToJSON.js'
+import isValidRow from '../utils/isValidRow.js'
+
 const expect = chai.expect
 
 describe('csvToJSON', () => {

@@ -1,4 +1,4 @@
-const isValidRow = require('./isValidRow')
+import isValidRow from './isValidRow.js'
 
 /**
  * Convert a CSV string to a JSON array.
@@ -28,4 +28,4 @@ const csvToJSON = csv => {
   return result
 }
 
-module.exports = csvToJSON
+export default csvToJSON
